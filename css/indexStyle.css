@@ -695,7 +695,7 @@ strong {
 /* 모바일 화면 GIF (두 번째와 세 번째 GIF) */
 .gif-container:nth-child(2) .project-gif,
 .gif-container:nth-child(3) .project-gif {
-    max-width: 300px;  /* 모바일 화면 GIF의 최대 너비를 300px로 제한 */
+    max-width: 300px; 
 }
 
 @media (max-width: 768px) {
@@ -703,10 +703,10 @@ strong {
         max-width: 100%;
     }
     
-    /* 모바일 화면에서도 바일 GIF는 더 작게 유지 */
+    /* 모바일 화면에서도 모바일 GIF는 더 작게 유지 */
     .gif-container:nth-child(2) .project-gif,
     .gif-container:nth-child(3) .project-gif {
-        max-width: 250px;  /* 모바일 화면에서는 더 작게 조정 */
+        max-width: 250px;  
     }
 }
 
@@ -728,7 +728,7 @@ strong {
 /* QR 생성 화면 GIF */
 .qr-grid .project-gif:not(.mobile) {
     width: 100%;
-    height: 200px;  /* 모든 QR 생성 화면을 동일한 높이로 */
+    height: 200px; 
     max-width: 600px;
     object-fit: contain;
     border-radius: 8px;
@@ -739,7 +739,7 @@ strong {
 /* 모바일 화면 GIF */
 .qr-grid .project-gif.mobile {
     width: 180px;
-    height: 360px;  /* 모바일 화면은 세로로 긴 형태 유지 */
+    height: 360px;  
     object-fit: contain;
 }
 
@@ -794,19 +794,4 @@ strong {
 .team-members strong {
     color: var(--primary-color);
     font-weight: 600;
-}
-
-.detail-info ul ul {
-    margin-left: 1.5rem;
-    margin-top: 0.5rem;
-    list-style-type: circle;
-}
-
-.detail-info ul li {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.detail-info ul ul li {
-    margin-bottom: 0.5rem;
 }
