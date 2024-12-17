@@ -787,8 +787,8 @@ strong {
 
 .team-members li {
     margin-bottom: 0.8rem;
-    padding-left: 1rem;
-    border-left: 3px solid var(--accent-color);
+    padding-left: 0;
+    border-left: none;
 }
 
 .team-members strong {
