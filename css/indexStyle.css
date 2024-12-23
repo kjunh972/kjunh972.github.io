@@ -684,12 +684,15 @@ strong {
 
 .project-gif {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     height: auto;
+    min-height: 400px;
+    object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: block;
     margin: 0 auto;
+    background-color: #f8f9fa;
 }
 
 /* 모바일 화면 GIF (두 번째와 세 번째 GIF) */
@@ -701,6 +704,7 @@ strong {
 @media (max-width: 768px) {
     .project-gif {
         max-width: 100%;
+        min-height: 300px;
     }
     
     /* 모바일 화면에서도 모바일 GIF는 더 작게 유지 */
@@ -728,35 +732,40 @@ strong {
 /* QR 생성 화면 GIF */
 .qr-grid .project-gif:not(.mobile) {
     width: 100%;
-    height: 200px; 
-    max-width: 600px;
+    height: 400px;
+    max-width: 800px;
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     background-color: #f8f9fa;
 }
 
-/* 모바일 화면 GIF */
+/* QR 프로젝트 모바일 GIF 스타일 */
 .qr-grid .project-gif.mobile {
-    width: 180px;
-    height: 360px;  
-    object-fit: contain;
+    width: 180px !important;
+    height: 390px !important;  /* 모든 모바일 GIF의 높이를 통일 */
+    object-fit: cover;  /* contain에서 cover로 변경하여 여백 제거 */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 0 auto;
 }
 
+/* 미디어 쿼리에서 모바일 GIF 관련 스타일 제거 */
 @media (max-width: 768px) {
     .qr-grid {
         grid-template-columns: 1fr;
     }
 }
 
+/* 기존의 중복된 모바일 GIF 스타일 제거 */
+.project-gif.mobile {
+    max-width: none; 
+}
+
 .gif-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-.project-gif.mobile {
-    max-width: 150px;
 }
 
 .more-content-notice {
