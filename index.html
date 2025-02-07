@@ -92,6 +92,17 @@
         <section id="activity">
             <h2>활동사항</h2>
             <div class="experience-item">
+                <h3>스위프 8기</h3>
+                <p class="period">2024.12 - 2025.2</p>
+                <p class="position">백엔드 개발 담당</p>
+                <ul>
+                    <li>SWYG 8기 IT 연합 동아리 프로젝트 참여</li>
+                    <li>Spring Boot를 활용한 백엔드 API 개발</li>
+                    <li>위치 기반 목표 인증 서비스 개발</li>
+                    <li>팀 프로젝트 협업 및 코드 리뷰 진행</li>
+                </ul>
+            </div>
+            <div class="experience-item">
                 <h3>유한대학교 컴퓨터소프트웨어공학과 학생회</h3>
                 <p class="period">2023.10 - 2024.12</p>
                 <p class="position">서기</p>
@@ -279,10 +290,154 @@
                             <span class="timeline-date">2024.12 - 진행중</span>
                         </div>
                     </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>SWYG 8기</h4>
+                            <p>위치기반 목표인증 서비스</p>
+                            <span class="timeline-date">2024.12 - 진행중</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- 프로젝트 카드들 -->
             <div class="project-grid">
+                <!-- 스위프 8기 프로젝트 -->
+                <div class="project-card" onclick="toggleProjectDetail('project5')">
+                    <div class="project-preview">
+                        <h3>위치기반 목표인증 서비스</h3>
+                        <p class="period">2024.12 - 진행중</p>
+                        <p class="summary">목표장소와 방문 요일/주기를 설정하고 방문 시 GPS 기능을 통해서 목표가 달성되는 서비스 (SWYG 8기)</p>
+                        <span class="view-more">자세히 보기</span>
+                    </div>
+                    <div class="project-detail" id="project5">
+                        <div class="detail-content">
+                            <div class="detail-info">
+                                <h4>프로젝트 개요</h4>
+                                <p class="project-intro">위치 기반 목표 인증 서비스는 사용자가 설정한 목표 장소에 방문하여 GPS를 통해 자동으로 인증하고 포인트 시스템과 푸시 알림으로 동기부여를 강화하는 서비스입니다.</p>
+
+                                <h4>담당 업무</h4>
+                                <div class="feature-grid">
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-map-marker-alt"></i> 위치/지도 기능</h5>
+                                        <ul>
+                                            <li>주소 검색 및 목표 장소 등록 API 개발</li>
+                                            <li>목표 장소 반경 계산 및 현재 위치 비교 로직 구현</li>
+                                            <li>GPS 기반 자동 인증 시스템 개발</li>
+                                        </ul>
+                                    </div>
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-user-cog"></i> 설정(마이페이지)</h5>
+                                        <ul>
+                                            <li>사용자 이름 설정 및 수정 기능</li>
+                                            <li>자동 로그인 설정 관리</li>
+                                            <li>토큰 기반 인증 처리</li>
+                                            <li>로그아웃 및 회원탈퇴 기능</li>
+                                            <li>서비스 약관 및 개인정보처리방침</li>
+                                            <li>고객 지원 정보 관리</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <h4>기술 스택</h4>
+                                <div class="tech-stack">
+                                    <div class="tech-category">
+                                        <h5>Frontend</h5>
+                                        <div class="tech-badges">
+                                            <span class="tech-badge">React</span>
+                                            <span class="tech-badge">TypeScript</span>
+                                            <span class="tech-badge">shadcn/ui</span>
+                                            <span class="tech-badge">Tanstack Query</span>
+                                            <span class="tech-badge">Zustand</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-category">
+                                        <h5>Backend</h5>
+                                        <div class="tech-badges">
+                                            <span class="tech-badge">Spring Boot</span>
+                                            <span class="tech-badge">Spring Security</span>
+                                            <span class="tech-badge">JWT</span>
+                                            <span class="tech-badge">JPA/Hibernate</span>
+                                            <span class="tech-badge">OAuth 2.0</span>
+                                            <span class="tech-badge">MySQL</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4>주요 기능</h4>
+                                <div class="feature-grid">
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-map-marker-alt"></i> 목표 설정 및 관리</h5>
+                                        <ul>
+                                            <li>목표 이름, 장소(주소 입력), 반복 요일, 시간대 설정</li>
+                                            <li>목표 수정/삭제 기능</li>
+                                            <li>활성 목표는 수정 불가, 삭제 가능</li>
+                                        </ul>
+                                    </div>
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-location-arrow"></i> 위치 기반 목표 인증</h5>
+                                        <ul>
+                                            <li>GPS 자동 인증: 목표 장소 반경 내 도착 시 인증</li>
+                                            <li>시간대 인증 제한</li>
+                                            <li>설정된 시간대에만 인증 가능</li>
+                                        </ul>
+                                    </div>
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-chart-line"></i> 목표 달성 대시보드</h5>
+                                        <ul>
+                                            <li>캘린더 뷰로 목표 달성 현황 시각화</li>
+                                            <li>방문 시간, 머문 시간 자동 저장</li>
+                                            <li>주간/월간 통계 그래프 제공</li>
+                                        </ul>
+                                    </div>
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-bell"></i> 알림 및 동기부여</h5>
+                                        <ul>
+                                            <li>목표 시간 리마인드 알림</li>
+                                            <li>목표 미달성 시 푸시 알림</li>
+                                            <li>목표 완료 시 피드백 & 축하 메시지</li>
+                                        </ul>
+                                    </div>
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-coins"></i> 포인트 및 리워드</h5>
+                                        <ul>
+                                            <li>목표 달성 시 포인트 지급</li>
+                                            <li>포인트 누적 후 리워드 교환</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <h4>서비스 고도화 계획</h4>
+                                <div class="feature-grid">
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-mobile-alt"></i> 앱 전환</h5>
+                                        <ul>
+                                            <li>결제 시스템 인프라 구축</li>
+                                            <li>푸시 알림 시스템 고도화</li>
+                                            <li>Background GPS 작동 최적화</li>
+                                        </ul>
+                                    </div>
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-clock"></i> 목표 소요기간 설정</h5>
+                                        <ul>
+                                            <li>목표 소요시간 입력 기능</li>
+                                            <li>2단계 인증 시스템 (도착/떠남)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="feature-card">
+                                        <h5><i class="fas fa-bell"></i> 알림 기능 강화</h5>
+                                        <ul>
+                                            <li>목표 소요시간 경과 리마인더</li>
+                                            <li>목표 미달성 경고 알림</li>
+                                            <li>맞춤형 푸시 알림</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- 강의실 좌석 예약 시스템 -->
                 <div class="project-card" onclick="toggleProjectDetail('project1')">
                     <div class="project-preview">
@@ -368,11 +523,18 @@
                                     <div class="feature-card">
                                         <h5><i class="fas fa-code"></i> 개발 담당</h5>
                                         <ul>
-                                            <li>웹 백엔드 개발</li>
-                                            <li>웹 기본적인 디자인 틀 개발</li>
-                                            <li>웹뷰를 활용한 앱개발</li>
-                                            <li>락스크린 (윈도우 폼) 개발</li>
-                                            <li>DB 구축 및 설계</li>
+                                            <li>팀장</li>
+                                            <li>전체 프로젝트 일정 및 팀원 관리</li>
+                                            <li>시간표 관리 기능 개발</li>
+                                            <li>좌석 예약 기능 개발</li>
+                                            <li>좌석 관리 기능 개발 (예약금지 좌석 관리, 예약 취소 및 좌석 이동 개발)</li>
+                                            <li>좌석 예약내역 및 예약금지 좌석내역 조회 기능 개발</li>
+                                            <li>락스크린 해제 시 자동 출석 체크 개발</li>
+                                            <li>출석 리스트 조회 기능 개발</li>
+                                            <li>웹 기초 디자인 개발</li>
+                                            <li>DB 설계 및 구축</li>
+                                            <li>웹뷰를 활용한 앱 개발</li>
+                                            <li>윈도우 락스크린 개발</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -833,7 +995,7 @@
                                         <ul>
                                             <li>사용자가 만든 이미지나 동영상을 폴더에 업로드 할 때 한글이름이나 특수 문자까지 생각하여 파일 이름을 지정 및 관리해야 오류가 안나고 이름이 저장될 때 파일 이름이 깨지지 않음.</li>
                                             <li>이미지나 동영상을 파일크기 제한을 두어서 관리를 해야 서버에 무리가 가지 않음을 깨달음</li>
-                                            <li>사용자가 동영상을 이미 동영상을 중간부터 본 뒤에 업로드 할 때 QR 생성후 스캔해서 동영상을 실행할 때 중간부터 실행되는 문제가 발생 할 수 있어서 동영상 재생할 때 처음부터 재생 할 수 있게 잘 설정해야함.</li>
+                                            <li>사용자가 동영상을 이미 동영상을 중간부터 본 뒤에 업로드 할 때 QR 생성후 스캔해서 동영상을 실행할 때 중간부터 실행할 수 있게 잘 설정해야함.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -956,7 +1118,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>
