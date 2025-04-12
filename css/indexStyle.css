@@ -1064,3 +1064,38 @@ strong {
         height: 400px;
     }
 }
+
+/* 배포 사이트 링크 스타일 */
+.deployment-link {
+    display: inline-block;
+    margin: 6px 0;
+    margin-bottom: 15px;
+    padding: 4px 12px;
+    background-color: white;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+}
+
+.deployment-link:hover {
+    background-color: #f8f9fa;
+    border-color: #d0d0d0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.deployment-link i {
+    margin-right: 6px;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .deployment-link {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+    }
+}
