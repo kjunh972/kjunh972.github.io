@@ -1099,3 +1099,54 @@ strong {
         padding: 3px 10px;
     }
 }
+
+/* WillGO 프로젝트 이미지 스타일 */
+#project5 .project-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#project5 .gif-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#project5 .gif-container h5 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+/* 모바일 스크린샷을 위한 특별 스타일 */
+#project5 .project-gif {
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: #f8f9fa;
+}
+
+/* 리워드 지급 이미지(마지막 이미지)만 크기 확대 */
+#project5 .gif-container:last-child .project-gif {
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    #project5 .project-images {
+        grid-template-columns: 1fr;
+    }
+    
+    #project5 .project-gif {
+        max-width: 350px;
+    }
+    
+    /* 리워드 지급 이미지 반응형 크기 조절 */
+    #project5 .gif-container:last-child .project-gif {
+        max-width: 600px;
+    }
+}
