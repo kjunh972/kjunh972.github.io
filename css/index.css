@@ -120,6 +120,36 @@
 }
 
 /* 기술 스택 섹션 */
+.skill-legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #dee2e6;
+}
+
+.legend-text {
+    font-size: 0.85rem;
+    color: #495057;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.legend-text strong {
+    color: var(--primary-color);
+}
+
+.legend-separator {
+    color: #adb5bd;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
 .skill-category {
     margin-bottom: 2rem;
 }
@@ -503,6 +533,22 @@
 
     .skills-grid {
         gap: 1rem;
+    }
+    
+    .skill-legend {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .legend-text {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    
+    .legend-separator {
+        font-size: 0.8rem;
     }
 
     .certificate-list li {
