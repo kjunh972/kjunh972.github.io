@@ -1,0 +1,337 @@
+/* 공통 CSS - 모든 페이지에서 사용되는 기본 스타일 */
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --sidenav-width: 280px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding-top: 60px;
+}
+
+/* 상단 네비게이션 바 - 더 반투명하게 */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(44, 62, 80, 0.05);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 3rem;
+}
+
+.nav-menu li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-menu li a:hover {
+    color: white;
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+}
+
+.nav-menu li a.active {
+    color: white;
+    background-color: var(--accent-color);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+/* 모바일 햄버거 메뉴 */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* 햄버거 메뉴 활성화 시 X 모양으로 변환 */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+/* 기존 사이드바 숨김 */
+.sidenav {
+    display: none;
+}
+
+/* 앵커 링크 스크롤 오프셋 - 고정 헤더 높이만큼 조정 */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* ID를 가진 모든 요소에 스크롤 오프셋 적용 */
+[id] {
+    scroll-margin-top: 80px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.profile h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.profile p {
+    color: var(--accent-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.nav-links {
+    margin-bottom: 2rem;
+}
+
+.sidenav ul {
+    list-style: none;
+}
+
+.sidenav ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidenav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+}
+
+.sidenav ul li a:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    transform: translateX(10px);
+}
+
+.social-links {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* 컨텐츠 영역 - 전체 폭 사용 */
+.content {
+    margin-left: 0;
+    padding: 2rem 4rem;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    section {
+        border-radius: 0;
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    body {
+        margin: 0;
+        padding-top: 0;
+    }
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    body {
+        padding-top: 0;
+    }
+    
+    /* 모바일에서 네비게이션 완전히 숨김 */
+    .top-nav {
+        display: none;
+    }
+    
+    .content {
+        padding: 0;
+        margin-left: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* 모바일에서 스크롤 오프셋 제거 */
+    section {
+        scroll-margin-top: 0;
+    }
+    
+    [id] {
+        scroll-margin-top: 0;
+    }
+}
+
+/* 공통 요소 스타일 */
+.period {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.position {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+strong {
+    color: var(--accent-color);
+}
+
+/* 프로젝트 링크 스타일 */
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* 기본 애니메이션 */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

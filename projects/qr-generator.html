@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR 코드 생성기 | Kim Jun Hyeong</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="sidebar-placeholder"></div>
+
+    <main class="content">
+        <section class="project-detail-page">
+            <div class="project-header">
+                <h1>QR 코드 생성기</h1>
+                <p class="project-period">2024.10 - 2024.11</p>
+                <p class="project-type">사용자 맞춤형 QR 코드 생성 시스템 (기말 프로젝트)</p>
+            </div>
+
+            <div class="project-content">
+                <div class="project-images qr-grid">
+                    <div class="gif-container">
+                        <h4>연락처 QR 생성</h4>
+                        <img src="https://github.com/kjunh972/QRManager/raw/main/QRManager/uploads/%EC%97%B0%EB%9D%BD%EC%B2%98_QR%EC%83%9D%EC%84%B1.gif" 
+                            alt="연락처 QR 생성" class="project-gif" loading="lazy">
+                        <img src="https://github.com/kjunh972/QRManager/raw/main/QRManager/uploads/%EC%97%B0%EB%9D%BD%EC%B2%98_%20%EB%AA%A8%EB%B0%94%EC%9D%BC.gif" 
+                            alt="연락처 QR 모바일" class="project-gif qr-mobile-img" loading="lazy">
+                    </div>
+                    <div class="gif-container">
+                        <h4>미니게임 QR 생성</h4>
+                        <img src="https://github.com/kjunh972/QRManager/raw/main/QRManager/uploads/%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84_QR%EC%83%9D%EC%84%B1.gif" 
+                            alt="미니게임 QR 생성" class="project-gif" loading="lazy">
+                        <img src="https://github.com/kjunh972/QRManager/raw/main/QRManager/uploads/%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84_%EB%AA%A8%EB%B0%94%EC%9D%BC.gif" 
+                            alt="미니게임 QR 모바일" class="project-gif qr-mobile-img" loading="lazy">
+                    </div>
+                    <div class="gif-container">
+                        <h4>현재위치 QR 생성</h4>
+                        <img src="https://github.com/kjunh972/QRManager/raw/main/QRManager/uploads/%ED%98%84%EC%9E%AC%EC%9C%84%EC%B9%98_QR%EC%83%9D%EC%84%B1.gif" 
+                            alt="현재위치 QR 생성" class="project-gif" loading="lazy">
+                        <img src="https://github.com/kjunh972/QRManager/raw/main/QRManager/uploads/%ED%98%84%EC%9E%AC%EC%9C%84%EC%B9%98_%EB%AA%A8%EB%B0%94%EC%9D%BC.gif" 
+                            alt="현재위치 QR 모바일" class="project-gif qr-mobile-img" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <h4>프로젝트 개요</h4>
+                    <p class="project-intro">기말 프로젝트로 진행한 QR 코드 생성기는 사용자가 원하는 다양한 컨텐츠를 QR 코드로 생성하고 관리할 수 있는 웹 애플리케이션입니다.</p>
+
+                    <h4>기술 스택</h4>
+                    <div class="tech-stack">
+                        <div class="tech-badges">
+                            <span class="tech-badge">Spring Boot</span>
+                            <span class="tech-badge">H2 DB</span>
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">CSS3</span>
+                        </div>
+                    </div>
+
+                    <h4>주요 기능</h4>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h5><i class="fas fa-list-ul"></i> 다양한 컨텐츠 타입 지원</h5>
+                            <ul>
+                                <li>텍스트</li>
+                                <li>이미지</li>
+                                <li>비디오</li>
+                                <li>주소/URL</li>
+                                <li>연락처(vCard)</li>
+                                <li>위치 정보</li>
+                                <li>미니게임(퀴즈)</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h5><i class="fas fa-qrcode"></i> QR 코드 생성</h5>
+                            <ul>
+                                <li>각 컨텐츠에 대한 고유 QR 코드 자동 생성</li>
+                                <li>Base64 인코딩 지원</li>
+                                <li>안전한 파일명 처리</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h5><i class="fas fa-gamepad"></i> 미니게임(퀴즈) 기능</h5>
+                            <ul>
+                                <li>다양한 주제의 퀴즈 제공</li>
+                                <li>실시간 점수 계산</li>
+                                <li>상위 10위까지 랭킹 시스템</li>
+                                <li>모바일 친화적 UI</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4>주요 API</h4>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h5><i class="fas fa-file-upload"></i> 컨텐츠 관리</h5>
+                            <ul>
+                                <li>POST /upload - 새로운 컨텐츠 업로드 및 QR 코드 생성</li>
+                                <li>GET /view/{id} - 컨텐츠 조회</li>
+                                <li>GET /uploads/{filename} - 업로드된 파일 조회</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h5><i class="fas fa-trophy"></i> 퀴즈 게임</h5>
+                            <ul>
+                                <li>GET /QuizJun - 퀴즈 게임 페이지</li>
+                                <li>POST /api/quiz/score - 퀴즈 점수 저장</li>
+                                <li>GET /api/quiz/leaderboard - 랭킹 조회</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4>느낀 점</h4>
+                    <div class="challenge-list">
+                        <div class="challenge-item">
+                            <h5><i class="fas fa-lightbulb"></i> 기술적 고려사항</h5>
+                            <ul>
+                                <li>사용자가 만든 이미지나 동영상을 폴더에 업로드 할 때 한글이름이나 특수 문자까지 생각하여 파일 이름을 지정 및 관리해야 오류가 안나고 이름이 저장될 때 파일 이름이 깨지지 않음.</li>
+                                <li>이미지나 동영상을 파일크기 제한을 두어서 관리를 해야 서버에 무리가 가지 않음을 깨달음</li>
+                                <li>사용자가 동영상을 이미 동영상을 중간부터 본 뒤에 업로드 할 때 QR 생성후 스캔해서 동영상을 실행할 때 중간부터 실행할 수 있게 잘 설정해야함.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/kjunh972/QRManager" target="_blank">
+                            <i class="fab fa-github"></i> Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+    fetch('../includes/menu.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('sidebar-placeholder').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+    </script>
+</body>
+</html>

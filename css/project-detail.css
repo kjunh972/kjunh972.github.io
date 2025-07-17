@@ -1,0 +1,688 @@
+/* 프로젝트 상세 페이지 스타일 */
+.project-detail-page {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 15px;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.project-header .project-period {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.project-header .project-type {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.project-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 이미지 섹션 공통 스타일 ===== */
+.project-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    justify-items: center;
+    align-items: start;
+    width: 100%;
+}
+
+.gif-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+.gif-container h4, .gif-container h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ===== 데스크톱 이미지 크기 설정 ===== */
+
+/* 일반 웹 이미지 (기본 크기) */
+.project-images .project-gif {
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: #f8f9fa;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* 윈도우 캡처 이미지 (데스크톱에서 캡처한 큰 이미지) */
+.desktop-capture-img {
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    background-color: #f8f9fa !important;
+    max-width: 1200px !important;
+    width: 100% !important;
+    min-width: 800px !important;
+}
+
+/* 윈도우 캡처 이미지가 있는 컨테이너는 전체 폭 차지 */
+.gif-container:has(.desktop-capture-img) {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+}
+
+/* WillGO 프로젝트 - 모바일 앱 이미지 (데스크톱) */
+.willgo-mobile-img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+}
+
+.willgo-mobile-container {
+    max-width: 300px;
+    width: 100%;
+    flex: 1;
+}
+
+/* 강의실 좌석 예약 - 모바일 앱 이미지가 있다면 */
+.seat-mobile-img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+}
+
+.seat-mobile-container {
+    max-width: 300px;
+    width: 100%;
+    min-width: 280px;
+    flex: 1;
+}
+
+/* QR 프로젝트 특별 스타일 */
+.qr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.qr-grid .gif-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* QR 프로젝트 - 웹 이미지 (데스크톱 크게) */
+.qr-grid .project-gif:not(.qr-mobile-img) {
+    width: 100%;
+    height: 500px;
+    max-width: 900px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: #f8f9fa;
+}
+
+/* QR 프로젝트 - 모바일 이미지 (데스크톱) */
+.qr-grid .qr-mobile-img {
+    width: 200px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 0 auto;
+}
+
+/* StudyRecord 프로젝트 특별 스타일 */
+#project4 .project-images {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#project4 .gif-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#project4 .project-gif {
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: #f8f9fa;
+}
+
+/* 프로젝트 이미지 섹션 - 기본 (단일 이미지용) */
+.project-images:not(.qr-grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    justify-items: center;
+    align-items: start;
+}
+
+/* 일반 프로젝트 이미지 (단일 이미지) - 크기 확대 */
+.project-images:not(.qr-grid) .project-gif {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+}
+
+/* 윈도우 캡처 이미지 우선순위 높게 설정 */
+.project-images:not(.qr-grid) .desktop-capture-img {
+    width: 100% !important;
+    max-width: 1000px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    display: block !important;
+    margin: 0 auto !important;
+    background-color: #f8f9fa !important;
+}
+
+/* ===== 나머지 스타일들 ===== */
+
+/* 상세 정보 섹션 */
+.detail-info h4 {
+    color: var(--primary-color);
+    margin: 2rem 0 1rem;
+    font-size: 1.2rem;
+}
+
+.detail-info h4:first-child {
+    margin-top: 0;
+}
+
+.detail-info ul {
+    list-style-type: none;
+    margin: 1rem 0;
+}
+
+.detail-info ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.detail-info ul li:before {
+    content: '•';
+    color: #333;
+    position: absolute;
+    left: 0;
+}
+
+/* 프로젝트 소개 */
+.project-intro {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin: 1.5rem 0;
+}
+
+.project-intro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 기능 카드 그리드 */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.feature-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.feature-card h5 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feature-card i {
+    color: var(--accent-color);
+}
+
+.feature-card ul {
+    margin-left: 1.2rem;
+}
+
+.feature-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.feature-card li:before {
+    content: '•';
+    color: #333;
+    position: absolute;
+    left: -1rem;
+}
+
+/* 기술 스택 섹션 */
+.tech-stack {
+    margin: 1.5rem 0;
+}
+
+.tech-category {
+    margin-bottom: 1.5rem;
+}
+
+.tech-category h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tech-badge {
+    background: white;
+    color: var(--primary-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* 도전 과제 섹션 */
+.challenge-list {
+    margin: 1.5rem 0;
+}
+
+.challenge-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.challenge-item h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.challenge-item i {
+    color: var(--accent-color);
+}
+
+/* 팀 정보 섹션 */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.team-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.team-card h5 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.team-card i {
+    color: var(--accent-color);
+}
+
+.member-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.member-name strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.team-card ul {
+    margin-left: 1.2rem;
+    list-style-type: none;
+}
+
+.team-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.team-card li:before {
+    content: '•';
+    color: #333;
+    position: absolute;
+    left: -1rem;
+}
+
+/* 추가 컨텐츠 알림 */
+.more-content-notice {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.more-content-notice p {
+    line-height: 1.6;
+}
+
+/* ===== 성능 최적화 세부사항 스타일 ===== */
+.optimization-details {
+    margin: 1rem 0;
+}
+
+.detail-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.detail-section h6 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-section ol {
+    margin: 0;
+    padding-left: 1.5rem;
+    list-style-type: decimal;
+}
+
+.detail-section ol li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #2d3748;
+}
+
+.detail-section ol li:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== 반응형 디자인 (모바일) ===== */
+@media (max-width: 768px) {
+    .project-detail-page {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .project-header {
+        margin: 0 0 1rem 0;
+        border-radius: 0;
+        padding: 1.5rem;
+    }
+    
+    .project-content {
+        margin: 0;
+        border-radius: 0;
+        padding: 1.5rem;
+    }
+    
+    .project-header h1 {
+        font-size: 2rem;
+    }
+    
+    .project-content {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    /* 모바일에서 섹션 여백 완전 제거 */
+    section {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-badges {
+        gap: 0.5rem;
+    }
+    
+    /* 모바일에서 모든 이미지 통일된 크기 설정 */
+    .project-images,
+    .project-images:not(.qr-grid),
+    .gif-container,
+    .willgo-mobile-container {
+        margin-left: -1rem !important;
+        margin-right: -1rem !important;
+        width: calc(100% + 2rem) !important;
+        max-width: calc(100% + 2rem) !important;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+        overflow: visible !important;
+    }
+    
+    /* 데스크톱 캡처 이미지 컨테이너 - 패딩 제거로 딱 맞게 조정 */
+    .gif-container:has(.desktop-capture-img) {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        padding: 0.5rem 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* 모든 이미지 타입에 동일한 스타일 적용 */
+    .project-images .project-gif,
+    .qr-mobile-img,
+    .seat-mobile-img,
+    .gif-container img:not(.desktop-capture-img) {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        border-radius: 8px !important;
+        display: block !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+    
+    
+    .tech-badge {
+        font-size: 0.8rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .qr-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-gif {
+        max-width: 100%;
+        min-height: 300px;
+    }
+    
+    /* 일반 프로젝트 이미지 모바일 크기 조정 */
+    .project-images:not(.qr-grid) .project-gif {
+        max-width: 100%;
+        min-height: 300px;
+        max-width: 600px;
+    }
+    
+    /* 모바일 환경에서 프로젝트 이미지들 반응형 조정 */
+    .project-images {
+        grid-template-columns: 1fr;
+    }
+    
+    /* === 모바일 화면에서 이미지 크기 조정 === */
+    
+    /* 일반 웹 이미지 모바일 크기 */
+    .project-images .project-gif {
+        max-width: 350px;
+    }
+    
+    /* 모든 이미지에 강제 모바일 크기 적용 (데스크톱 캡처 이미지 제외) */
+    .project-images img:not(.desktop-capture-img) {
+        max-width: 350px !important;
+    }
+    
+    /* 모바일 이미지 전체에 강제 크기 적용 (WillGO 제외) */
+    .project-images .seat-mobile-img,
+    .qr-grid .qr-mobile-img {
+        max-width: 50px !important;
+        width: 50px !important;
+        min-width: 50px !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+    
+    /* 컨테이너도 강제로 작게 (WillGO 제외) */
+    .project-images .seat-mobile-container {
+        max-width: 50px !important;
+        width: 50px !important;
+        min-width: 50px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* 강의실 좌석 예약 - 모바일 앱 이미지 (모바일 화면) */
+    .seat-mobile-img {
+        max-width: 60px !important;
+        width: 60px !important;
+        height: auto !important;
+        min-width: 60px !important;
+    }
+    
+    .seat-mobile-container {
+        max-width: 60px !important;
+        width: 60px !important;
+        min-width: 60px !important;
+        flex-shrink: 0;
+    }
+    
+    /* QR 프로젝트 - 모바일 이미지 (모바일 화면) */
+    .qr-grid .qr-mobile-img {
+        max-width: 60px !important;
+        width: 60px !important;
+        height: auto !important;
+        min-width: 60px !important;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+    
+    #project4 .project-gif {
+        height: 400px;
+    }
+    
+    /* 데스크톱 캡처 이미지 모바일 전용 */
+    .project-images .gif-container .desktop-capture-img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 60vh !important;
+        object-fit: contain !important;
+        border-radius: 8px !important;
+        display: block !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+        min-width: auto !important;
+        min-height: auto !important;
+    }
+}
