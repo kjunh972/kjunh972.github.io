@@ -1,7 +1,7 @@
 /* 프로젝트 상세 페이지 스타일 */
 .project-detail-page {
     padding: 2rem;
-    max-width: 1600px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -377,6 +377,13 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.challenge-section h6 {
+    color: var(--primary-color);
+    margin: 1rem 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .challenge-item i {
