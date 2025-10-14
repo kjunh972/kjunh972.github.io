@@ -155,9 +155,9 @@
                             <div class="challenge-section">
                                 <h6>해결방법</h6>
                                 <ul>
-                                    <li>Level 1: 500m 그리드 기반 근처 코스 ID 캐싱 (Hash 구조)</li>
-                                    <li>Level 2: 코스별 상세 정보 캐싱</li>
-                                    <li>Redis multiGet으로 다중 코스 일괄 조회 (N회 → 1회 왕복)</li>
+                                    <li>Level 1 : 500m 그리드 기반 근처 코스 ID 캐싱 (Redis Hash 구조)</li>
+                                    <li>Level 2 : 코스 상세 정보 개별 캐싱</li>
+                                    <li>Redis multiGet으로 다중 코스 일괄 조회 (N회 왕복 → 1회 왕복)</li>
                                     <li>LRU+LFU 하이브리드 eviction으로 메모리 효율성 확보</li>
                                     <li>슬롯 기반 메모리 제한 (근처 코스 10개, 상세 정보 200개)</li>
                                 </ul>
@@ -165,10 +165,11 @@
                             <div class="challenge-section">
                                 <h6>성과</h6>
                                 <ul>
-                                    <li>응답 속도 70% 개선 (DB 200ms → Redis 30ms)</li>
-                                    <li>DB 조회 90% 감소</li>
-                                    <li>네트워크 I/O 90% 감소 (multiGet 적용)</li>
-                                    <li>메모리 무제한 증가 방지 (슬롯 기반 상한 설정)</li>
+                                    <li>Level 1 응답 속도 83% 개선 (117ms → 20ms, 5.8배 향상)</li>
+                                    <li>Level 2 multiGet으로 52.1% 개선 (121ms → 58ms, 2.0배 향상)</li>
+                                    <li>전체 응답 속도 90% 개선 (840ms → 84ms, 10배 향상)</li>
+                                    <li>Redis 캐시 Hit 시 평균 84ms 응답</li>
+                                    <li>DB 부하 91% 감소 (반복 조회 시)</li>
                                 </ul>
                             </div>
                         </div>
@@ -225,23 +226,113 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="challenge-item">
+                            <h5><i class="fas fa-trophy"></i> Redis Sorted Set 기반 크루 랭킹 캐싱 시스템</h5>
+                            <div class="challenge-section">
+                                <h6>문제상황</h6>
+                                <ul>
+                                    <li>크루 랭킹 조회 시 매번 DB에서 전체 크루 및 회원 데이터를 조회하여 응답 속도 저하</li>
+                                    <li>반복적인 랭킹 조회로 인한 DB 부하 증가</li>
+                                    <li>크루 정보 조회 시 N+1 쿼리 문제 발생</li>
+                                </ul>
+                            </div>
+                            <div class="challenge-section">
+                                <h6>해결방법</h6>
+                                <ul>
+                                    <li>Redis Sorted Set으로 랭킹 데이터 캐싱 (거리 기준 자동 정렬)</li>
+                                    <li>Cache-Aside 패턴 적용 (캐시 미스 시 DB 조회 후 캐싱)</li>
+                                    <li>크루 정보는 DB IN 쿼리로 일괄 조회하여 N+1 문제 해결</li>
+                                    <li>TTL 1일 설정으로 자동 메모리 관리</li>
+                                </ul>
+                            </div>
+                            <div class="challenge-section">
+                                <h6>성과</h6>
+                                <ul>
+                                    <li>응답 속도 94% 개선 (34.2ms → 2.0ms, 17배 향상)</li>
+                                    <li>DB 부하 98% 감소 (반복 조회 시)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="challenge-item">
+                            <h5><i class="fas fa-users"></i> 크루원 랭킹 조회 N+1 쿼리 최적화</h5>
+                            <div class="challenge-section">
+                                <h6>문제상황</h6>
+                                <ul>
+                                    <li>크루원 랭킹 조회 시 각 회원 정보를 개별로 조회하는 N+1 쿼리 문제 발생</li>
+                                    <li>20명 크루 기준 21번의 DB 쿼리 발생 (랭킹 1회 + 회원 정보 20회)</li>
+                                    <li>크루원 수 증가에 비례하여 응답 시간 증가</li>
+                                </ul>
+                            </div>
+                            <div class="challenge-section">
+                                <h6>해결방법</h6>
+                                <ul>
+                                    <li>모든 회원 ID를 먼저 수집하여 IN 쿼리로 한 번에 조회</li>
+                                    <li>Map 자료구조를 활용한 O(1) 시간복잡도 조회</li>
+                                    <li>Stream API를 통한 효율적인 데이터 변환</li>
+                                </ul>
+                            </div>
+                            <div class="challenge-section">
+                                <h6>성과</h6>
+                                <ul>
+                                    <li>DB 쿼리 90% 감소 (21회 → 2회)</li>
+                                    <li>응답 속도 60% 개선</li>
+                                    <li>크루원 수 증가에도 일정한 성능 보장</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="challenge-item">
+                            <h5><i class="fas fa-image"></i> WebP 이미지 변환을 통한 파일 용량 최적화</h5>
+                            <div class="challenge-section">
+                                <h6>문제상황</h6>
+                                <ul>
+                                    <li>커뮤니티 게시글, 런닝 완료 인증 이미지등 이미지 업로드 시 원본 포맷(JPG, PNG) 그대로 저장하여 저장 공간 낭비</li>
+                                    <li>대용량 이미지로 인한 네트워크 전송 시간 증가 및 사용자 데이터 소모</li>
+                                    <li>고해상도 이미지 업로드 시 불필요한 저장 공간 사용</li>
+                                </ul>
+                            </div>
+                            <div class="challenge-section">
+                                <h6>해결방법</h6>
+                                <ul>
+                                    <li>업로드된 모든 이미지를 WebP 포맷으로 자동 변환</li>
+                                    <li>최대 1920X1920 크기로 자동 리사이징하여 불필요한 고해상도 방지</li>
+                                    <li>scrimage 라이브러리를 활용한 이미지 변환 및 압축</li>
+                                </ul>
+                            </div>
+                            <div class="challenge-section">
+                                <h6>성과</h6>
+                                <ul>
+                                    <li>이미지 용량 최대 95% 감소 (4.5MB -> 225KB, 20배 절감)</li>
+                                    <li>실제 테스트: 4.5MB → 225KB (95% 감소), 221KB -> 20KB (91% 감소)</li>
+                                    <li>저장 공간 비용 절감 및 네트워크 전송 속도 향상</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <h4>성과 및 경험</h4>
                     <div class="challenge-list">
                         <div class="challenge-item">
-                            <h5><i class="fas fa-tachometer-alt"></i> Redis 캐싱 시스템 구축 및 성능 최적화</h5>
+                            <h5><i class="fas fa-tachometer-alt"></i> Redis 기반 성능 최적화</h5>
                             <ul>
-                                <li>2단계 캐싱 아키텍처 설계 및 구현</li>
-                                <li>메모리 효율성과 캐시 히트율 균형 있는 최적화</li>
-                                <li>성능 개선 (응답 속도 70% 향상)</li>
+                                <li>코스 조회: 2단계 캐싱 아키텍처로 응답 속도 90% 개선 (840ms → 84ms, 10배 향상)</li>
+                                <li>크루 랭킹: Sorted Set 캐싱으로 응답 속도 94% 개선 (34.2ms → 2.0ms, 17배 향상)</li>
+                                <li>Hash 구조 최적화: 슬롯 업데이트 성능 10배 향상, Redis 명령 90% 감소</li>
+                                <li>메모리 효율성과 캐시 히트율 균형 최적화 (LRU+LFU 하이브리드, 슬롯 기반 제한)</li>
+                            </ul>
+                        </div>
+                        <div class="challenge-item">
+                            <h5><i class="fas fa-image"></i> 이미지 최적화</h5>
+                            <ul>
+                                <li>WebP 변환 + 리사이징으로 이미지 용량 최대 95% 감소 (4.5MB → 225KB, 20배 절감)</li>
+                                <li>저장 공간 비용 절감 및 사용자 데이터 소비량 감소</li>
                             </ul>
                         </div>
                         <div class="challenge-item">
                             <h5><i class="fas fa-lock"></i> 보안 및 인증 시스템 구축</h5>
                             <ul>
-                                <li>Redis를 활용한 토큰 블랙리스트 관리로 안전한 로그아웃 구현</li>
-                                <li>크루별 권한 시스템으로 세밀한 접근 제어</li>
+                                <li>OAuth2 기반 카카오 소셜 로그인 + JWT 토큰 인증 구현</li>
+                                <li>Redis 토큰 블랙리스트 관리로 안전한 로그아웃 구현</li>
+                                <li>크루별 권한 시스템 (리더/매니저/일반 크루원)으로 세밀한 접근 제어</li>
                             </ul>
                         </div>
                         <div class="challenge-item">
@@ -249,6 +340,7 @@
                             <ul>
                                 <li>Spring Event + @TransactionalEventListener로 알림 로직 비즈니스 로직과 분리</li>
                                 <li>@Async 비동기 처리로 메인 트랜잭션 응답 속도 개선</li>
+                                <li>13가지 알림 시나리오 안정적 운영 (크루, 커뮤니티, 일정)</li>
                             </ul>
                         </div>
                         <div class="challenge-item">
