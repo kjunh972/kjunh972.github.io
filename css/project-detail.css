@@ -233,6 +233,13 @@
     margin-top: 0;
 }
 
+.detail-info h5 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem;
+}
+
 .detail-info ul {
     list-style-type: none;
     margin: 1rem 0;
@@ -692,4 +699,58 @@
         min-width: auto !important;
         min-height: auto !important;
     }
+}
+
+/* ===== Scheduler 섹션 ===== */
+.scheduler-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.scheduler-info-box {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.scheduler-info-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.scheduler-info-box strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.scheduler-info-box span {
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ===== Branch/Commit 스타일 ===== */
+.info-box {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8ecff 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(3, 102, 214, 0.1);
+}
+
+.info-box p {
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
