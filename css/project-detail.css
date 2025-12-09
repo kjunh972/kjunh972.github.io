@@ -754,3 +754,13 @@
     line-height: 1.6;
     font-size: 0.95rem;
 }
+
+/* ===== 아키텍처 다이어그램 ===== */
+.architecture-image {
+    max-width: 100%;
+    width: 650px;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

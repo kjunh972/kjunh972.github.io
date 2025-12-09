@@ -53,54 +53,9 @@
                     <h4>아키텍처 설계</h4>
                     <div class="architecture-section">
                         <h5>시스템 아키텍처</h5>
-                        <!-- TODO: 아키텍처 다이어그램 이미지 추가 예정 -->
-                        <!--
                         <div class="architecture-diagram">
-                            <img src="../img/kkambbak-architecture.png" alt="kkambbak 시스템 아키텍처" class="architecture-image">
+                            <img src="../img/kkambbak/kkambbak-Architecture.png" alt="kkambbak 시스템 아키텍처" class="architecture-image">
                         </div>
-                        -->
-                        <!--
-                        <div class="architecture-diagram">
-                            <pre>Client (App/Web)
-    ↓
-Naver Cloud Platform
-    ↓
-Nginx (Reverse Proxy)
-    ├─ Listen :80, :443
-    └─ Proxy → :8080
-    ↓
-Spring Boot API (:8080)
-    ├─ 회원 관리
-    ├─ 학습 컨텐츠
-    ├─ 프로필 관리
-    └─ 결제 처리
-    ↓
-Redis (:6379)
-    ├─ 캐싱
-    └─ 세션 관리
-    ↓
-Neon PostgreSQL (TLS)
-    └─ 데이터베이스
-
-Scheduler (Background)
-    ├─ 정기 작업
-    ├─ 배치 처리
-    └─ Discord 알림
-
-Monitoring Stack
-    ├─ Prometheus (:9090) - 메트릭 수집
-    ├─ Loki (:3100) - 로그 집계
-    ├─ Promtail - 로그 수집
-    └─ Grafana (:3001) - 대시보드
-
-External Services
-    ├─ Cloudflare R2 (Object Storage)
-    ├─ Neon PostgreSQL (Database)
-    ├─ Azure, OpenAI
-    ├─ Kakao Pay, Gmail
-    └─ Discord</pre>
-                        </div>
-                        -->
 
                         <h5>멀티모듈 구조</h5>
                         <div class="architecture-diagram">
@@ -244,7 +199,7 @@ kkambbak-backend/
                                 <div class="detail-section problem">
                                     <h6><i class="fas fa-exclamation-triangle"></i> <strong>문제상황</strong></h6>
                                     <ul>
-                                        <li>로그인 버튼을 빠르게 연속 클릭 시 같은 게스트 계정이 여러 번 업그레이드 시도</li>
+                                        <li>단시간 내 중복된 로그인 요청 발생 시 같은 게스트 계정이 여러 번 업그레이드 시도</li>
                                         <li>여러 사용자가 동일한 게스트 계정으로 Google 로그인 시도 시 데이터 불일치 위험</li>
                                         <li>게스트 계정이 이미 업그레이드되었는지 확인하지 않고 재업그레이드 시도</li>
                                     </ul>
@@ -259,7 +214,7 @@ kkambbak-backend/
                                 <div class="detail-section result">
                                     <h6><i class="fas fa-chart-line"></i> <strong>성과</strong></h6>
                                     <ul>
-                                        <li>광클 시 단일 트랜잭션으로 안전 처리</li>
+                                        <li>단시간 내 중복된 로그인 요청 발생 시 단일 트랜잭션으로 안전 처리</li>
                                         <li>비관적 락으로 동시 로그인 순차 처리</li>
                                         <li>비관적 락과 멱등성 검사로 동시 로그인 안전하게 처리</li>
                                     </ul>
