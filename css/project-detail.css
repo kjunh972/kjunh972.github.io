@@ -764,3 +764,29 @@
     margin: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* ===== kkambbak 스크린샷 이미지 ===== */
+.kkambbak-screenshot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+}
+
+.kkambbak-screenshot img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+}
+
+.kkambbak-screenshot-caption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
