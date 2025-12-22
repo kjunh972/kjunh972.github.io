@@ -94,7 +94,7 @@
                     <div class="architecture-section">
                         <h5>시스템 아키텍처</h5>
                         <div class="architecture-diagram">
-                            <img src="../img/kkambbak/kkambbak-Architecture.png" alt="kkambbak 시스템 아키텍처" class="architecture-image">
+                            <img src="https://raw.githubusercontent.com/kkam-bbak/kkambbak/main/images/kkambbak-Architecture.png" alt="kkambbak 시스템 아키텍처" class="architecture-image">
                         </div>
 
                         <h5>멀티모듈 구조</h5>
@@ -225,8 +225,9 @@ kkambbak-backend/
                                 <li>백엔드 3명 관리 및 프론트엔드 팀과의 협업 조율</li>
                                 <li>기술 스택 선정, 코드 리뷰, 개발 표준 수립</li>
                                 <li>멀티모듈 구조 설계 및 아키텍처 설계</li>
-                                <li>FE 1명 탈주 시 프론트엔드 개발 지원으로 프로젝트 안정화</li>
-                                <li>스프린트 계획 및 작업 분배, 마일스톤 관리</li>
+                                <li>Naver Cloud Platform, Neon, Cloudflare R2 활용한 서버 배포 및 인프라 구축 및 관리</li>
+                                <li>Discord 알림 시스템 구축 (결제 내역, 스케줄러 성공/실패, 배포 성공/실패, 운영서버 500에러 등)으로 개발자의 빠른 대응 및 업무 효율성 향상</li>
+                                <li>Prometheus, Grafana, Loki, Promtail 기반 실시간 모니터링 시스템 구축으로 운영 안정성 확보</li>
                             </ul>
                         </div>
                     </div>
@@ -247,7 +248,7 @@ kkambbak-backend/
                                 <div class="detail-section solution">
                                     <h6><i class="fas fa-wrench"></i> <strong>해결방법</strong></h6>
                                     <ul>
-                                        <li><strong>비관적 락:</strong> 게스트 업그레이드 시 PESSIMISTIC_WRITE 락 사용, 한 번에 한 스레드만 게스트 계정에 접근 허용</li>
+                                        <li><strong>비관적 락:</strong> 게스트 업그레이드 시 비관적 락으로 한 번에 한 스레드만 게스트 계정에 접근 허용</li>
                                         <li><strong>멱등성 검사:</strong> 업그레이드 전에 게스트의 현재 상태 확인 후 이미 업그레이드된 경우 안전하게 정보만 업데이트</li>
                                     </ul>
                                 </div>
@@ -309,7 +310,6 @@ kkambbak-backend/
                                     <h6><i class="fas fa-wrench"></i> <strong>해결방법</strong></h6>
                                     <ul>
                                         <li>JPA @Version 필드를 통한 낙관적 잠금 구현</li>
-                                        <li>@Transactional(isolation = Isolation.REPEATABLE_READ) 격리 수준 적용으로 필요한 행만 선택적 잠금</li>
                                         <li>이메일 인증/재전송 시 동시성 충돌 발생 시 지수 백오프 재시도 로직 구현 (최대 3회)</li>
                                         <li>OtpStatus (PENDING/VERIFIED/EXPIRED)으로 명확한 상태 관리</li>
                                     </ul>
@@ -319,7 +319,6 @@ kkambbak-backend/
                                     <ul>
                                         <li>동시 요청 시에도 정확히 하나의 유효한 PENDING OTP만 유지</li>
                                         <li>버전 충돌 감지 시 먼저 실행된 요청만 성공, 동시 요청은 롤백</li>
-                                        <li>REPEATABLE_READ 격리 수준으로 테이블 전체가 아닌 특정 행만 잠금 → 성능 개선</li>
                                         <li>사용자별 독립적 처리로 다중 사용자 동시 접근 시 병렬 처리 가능</li>
                                     </ul>
                                 </div>
@@ -529,6 +528,14 @@ kkambbak-backend/
                                 <li>Git Flow 기반 브랜치 전략 및 커밋 컨벤션 규칙 수립</li>
                                 <li>프론트엔드 팀과의 협업 조율 및 커뮤니케이션</li>
                                 <li>FE 팀원 탈주 시 프론트엔드 개발 지원으로 프로젝트 안정화</li>
+                            </ul>
+                        </div>
+                        <div class="challenge-item">
+                            <h5><i class="fas fa-server"></i> 인프라 구축</h5>
+                            <ul>
+                                <li>Naver Cloud Platform, Neon, Cloudflare R2 활용한 서버 배포 및 인프라 구축 및 관리</li>
+                                <li>Discord 알림 시스템 구축 (결제 내역, 스케줄러 성공/실패, 배포 성공/실패, 운영서버 500에러 등)으로 개발자의 빠른 대응 및 업무 효율성 향상</li>
+                                <li>Prometheus, Grafana, Loki, Promtail 기반 실시간 모니터링 시스템 구축으로 운영 안정성 확보</li>
                             </ul>
                         </div>
                         <div class="challenge-item">

@@ -284,55 +284,35 @@
                             </div>
                         </div>
                         <div class="challenge-item">
-                            <h5><i class="fas fa-trophy"></i> Redis Sorted Set 기반 크루 랭킹 캐싱 시스템</h5>
+                            <h5><i class="fas fa-trophy"></i> Redis Sorted Set 기반 크루 랭킹 캐싱 및 N+1 쿼리 최적화</h5>
                             <div class="challenge-section">
-                                <h6>문제상황</h6>
+                                <h6>상황</h6>
                                 <ul>
                                     <li>크루 랭킹 조회 시 매번 DB에서 전체 크루 및 회원 데이터를 조회하여 응답 속도 저하</li>
                                     <li>반복적인 랭킹 조회로 인한 DB 부하 증가</li>
-                                    <li>크루 정보 조회 시 N+1 쿼리 문제 발생</li>
+                                    <li>크루원 랭킹 조회 시 각 회원 정보를 개별로 조회하는 N+1 쿼리 문제 발생 (20명 크루 기준 21번 쿼리)</li>
+                                </ul>
+                            </div>
+                            <div class="challenge-section">
+                                <h6>원인 분석</h6>
+                                <ul>
+                                    <li>랭킹 캐싱 미적용으로 인한 반복적 DB 조회</li>
+                                    <li>크루원 정보를 개별 조회로 인한 N+1 쿼리 문제</li>
                                 </ul>
                             </div>
                             <div class="challenge-section">
                                 <h6>해결방법</h6>
                                 <ul>
-                                    <li>Redis Sorted Set으로 랭킹 데이터 캐싱 (거리 기준 자동 정렬)</li>
-                                    <li>Cache-Aside 패턴 적용 (캐시 미스 시 DB 조회 후 캐싱)</li>
+                                    <li>Redis Sorted Set으로 랭킹 데이터 캐싱 (거리 기준 자동 정렬) 및 TTL 1일 설정</li>
+                                    <li>Cache-Aside 패턴 적용으로 캐시 미스 시 DB 조회 후 캐싱</li>
                                     <li>크루 정보는 DB IN 쿼리로 일괄 조회하여 N+1 문제 해결</li>
-                                    <li>TTL 1일 설정으로 자동 메모리 관리</li>
                                 </ul>
                             </div>
                             <div class="challenge-section">
                                 <h6>성과</h6>
                                 <ul>
                                     <li>응답 속도 94% 개선 (34.2ms → 2.0ms, 17배 향상)</li>
-                                    <li>DB 부하 98% 감소 (반복 조회 시)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="challenge-item">
-                            <h5><i class="fas fa-users"></i> 크루원 랭킹 조회 N+1 쿼리 최적화</h5>
-                            <div class="challenge-section">
-                                <h6>문제상황</h6>
-                                <ul>
-                                    <li>크루원 랭킹 조회 시 각 회원 정보를 개별로 조회하는 N+1 쿼리 문제 발생</li>
-                                    <li>20명 크루 기준 21번의 DB 쿼리 발생 (랭킹 1회 + 회원 정보 20회)</li>
-                                    <li>크루원 수 증가에 비례하여 응답 시간 증가</li>
-                                </ul>
-                            </div>
-                            <div class="challenge-section">
-                                <h6>해결방법</h6>
-                                <ul>
-                                    <li>모든 회원 ID를 먼저 수집하여 IN 쿼리로 한 번에 조회</li>
-                                    <li>Map 자료구조를 활용한 O(1) 시간복잡도 조회</li>
-                                    <li>Stream API를 통한 효율적인 데이터 변환</li>
-                                </ul>
-                            </div>
-                            <div class="challenge-section">
-                                <h6>성과</h6>
-                                <ul>
-                                    <li>DB 쿼리 90% 감소 (21회 → 2회)</li>
-                                    <li>응답 속도 60% 개선</li>
+                                    <li>DB 쿼리 90% 감소 (21회 → 2회)로 사용자 경험 향상 및 서버 안정성 확보</li>
                                     <li>크루원 수 증가에도 일정한 성능 보장</li>
                                 </ul>
                             </div>
